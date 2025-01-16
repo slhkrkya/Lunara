@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="API_Gateway" />
+        <module name="notification_service" />
+        <module name="gateway_service" />
+        <module name="Eureka_Server" />
+      </profile>
+      <profile name="Annotation profile for voice_video_service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="voice_video_service" />
+        <module name="user_service" />
+        <module name="messaging_service" />
+        <module name="server_channel_service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="API_Gateway" options="-parameters" />
+      <module name="Eureka_Server" options="-parameters" />
+      <module name="gateway_service" options="-parameters" />
+      <module name="messaging_service" options="-parameters" />
+      <module name="notification_service" options="-parameters" />
+      <module name="server_channel_service" options="-parameters" />
+      <module name="user_service" options="-parameters" />
+      <module name="voice_video_service" options="-parameters" />
+    </option>
+  </component>
+</project>

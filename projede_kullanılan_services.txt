@@ -1,0 +1,43 @@
+Her Mikroserviste Kullanılacak Bağımlılıklar ve Amaçları
+a. User Service
+Bağımlılıklar:
+
+Spring Web: RESTful API'ler oluşturmak için.
+Spring Data JPA: Kullanıcı verilerini yönetmek için.
+Spring Security: Kimlik doğrulama ve yetkilendirme işlemleri için.
+MySQL: Kullanıcı bilgilerini saklamak için bir kalıcı veritabanı.
+Lombok: Kod tekrarını azaltmak için getter/setter/constructor otomasyonu.
+b. Messaging Service
+Bağımlılıklar:
+
+Spring Web: Mesajlaşma REST API'leri.
+Spring Data JPA: Mesaj geçmişi ve saklama işlemleri için.
+RabbitMQ veya Kafka: Gerçek zamanlı mesajlaşma ve mesaj kuyruğu sistemi için.
+Lombok: Kod yönetimini kolaylaştırmak için.
+c. Server/Channel Service
+Bağımlılıklar:
+
+Spring Web: Kanal/sunucu yönetim API'leri.
+Spring Data JPA: Sunucu ve kanal bilgilerini depolamak için.
+MySQL: Kanal/sunucu bilgilerini saklama.
+Lombok: Kod tekrarını azaltmak için.
+d. Gateway Service
+Bağımlılıklar:
+
+Spring Cloud Gateway: API yönlendirme ve yük dengeleme işlemleri.
+Spring Security: Tüm mikroservisleri korumak için merkezi güvenlik.
+Spring Boot Actuator: Gateway servisinin sağlık durumu ve izleme bilgileri.
+e. Voice/Video Service
+Bağımlılıklar:
+
+Spring Web: REST API'ler ve medya bağlantısı.
+Spring WebSocket: Gerçek zamanlı sesli ve görüntülü iletişim için.
+RabbitMQ veya Kafka: Sesli ve görüntülü verilerin kuyruğa alınması.
+Lombok: Daha temiz ve kısa kodlama için.
+f. Notification Service
+Bağımlılıklar:
+
+Spring Web: Bildirim API'leri.
+Spring Data JPA: Bildirimlerin kaydını tutmak için.
+RabbitMQ veya Kafka: Gerçek zamanlı bildirim gönderimi.
+Lombok: Kod yönetimini kolaylaştırmak için.

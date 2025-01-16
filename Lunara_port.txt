@@ -1,0 +1,9 @@
+Her mikroservis için mantıklı bir port dağılımı yap:
+
+user_service: Kullanıcı yönetimi ile ilgili işlemler için → 8081
+messaging_service: Mesajlaşma işlemleri için → 8082
+notification_service: Bildirim sistemi için → 8083
+gateway_service: Tüm trafiği yönlendirmek için (ana giriş noktası) → 8080
+voice_video_service: Ses ve video iletişim için → 8084
+
+RabbitMQ Management Console: http://localhost:15672
