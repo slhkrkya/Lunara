@@ -7,3 +7,4 @@ gateway_service: Tüm trafiği yönlendirmek için (ana giriş noktası) → 808
 voice_video_service: Ses ve video iletişim için → 8084
 
 RabbitMQ Management Console: http://localhost:15672
+31
