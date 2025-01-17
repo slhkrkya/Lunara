@@ -1,0 +1,106 @@
+
+API Endpoint Listesi
+
+User Service
+1. Tüm Kullanıcıları Listele
+   - Endpoint: GET /api/users
+   - Açıklama: Sistemdeki tüm kullanıcıları listeler.
+   
+2. Kullanıcı ID ile Getir
+   - Endpoint: GET /api/users/id/{id}
+   - Açıklama: ID’ye göre bir kullanıcıyı getirir.
+   - Parametre: 
+     - id (Path Variable): Kullanıcı ID’si.
+
+3. Kullanıcı Username ile Getir
+   - Endpoint: GET /api/users/username/{username}
+   - Açıklama: Username’e göre bir kullanıcıyı getirir.
+   - Parametre: 
+     - username (Path Variable): Kullanıcı adı.
+
+4. Yeni Kullanıcı Oluştur
+   - Endpoint: POST /api/users
+   - Açıklama: Yeni bir kullanıcı ekler.
+   - Body:
+     {
+         "username": "string",
+         "email": "string",
+         "password": "string"
+     }
+
+5. Kullanıcı Güncelle
+   - Endpoint: PUT /api/users/{id}
+   - Açıklama: Belirli bir kullanıcıyı günceller.
+   - Parametre: 
+     - id (Path Variable): Kullanıcı ID’si.
+   - Body:
+     {
+         "username": "string",
+         "email": "string",
+         "password": "string"
+     }
+
+6. Kullanıcı Sil
+   - Endpoint: DELETE /api/users/{id}
+   - Açıklama: Belirli bir kullanıcıyı siler.
+   - Parametre: 
+     - id (Path Variable): Kullanıcı ID’si.
+
+Message Service
+1. Mesaj Gönder
+   - Endpoint: POST /api/message
+   - Açıklama: Bir kullanıcıdan diğerine mesaj gönderir.
+   - Body:
+     {
+         "senderId": 1,
+         "receiverId": 2,
+         "content": "Mesaj içeriği"
+     }
+
+2. Gönderilen Mesajları Listele
+   - Endpoint: GET /api/message/sender/{senderId}
+   - Açıklama: Belirli bir kullanıcının gönderdiği mesajları listeler.
+   - Parametre: 
+     - senderId (Path Variable): Gönderenin ID’si.
+
+3. Alınan Mesajları Listele
+   - Endpoint: GET /api/message/receiver/{receiverId}
+   - Açıklama: Belirli bir kullanıcının aldığı mesajları listeler.
+   - Parametre: 
+     - receiverId (Path Variable): Alıcının ID’si.
+
+4. Mesajı Okundu Olarak İşaretle
+   - Endpoint: PUT /api/message/markAsRead/{messageId}
+   - Açıklama: Bir mesajı okundu olarak işaretler.
+   - Parametre: 
+     - messageId (Path Variable): Mesajın ID’si.
+
+Notification Service
+1. Bildirim Oluştur
+   - Endpoint: POST /api/notifications
+   - Açıklama: Kullanıcıya bir bildirim oluşturur.
+   - Body:
+     {
+         "userId": 1,
+         "message": "Bildirim içeriği"
+     }
+
+2. Kullanıcının Bildirimlerini Getir
+   - Endpoint: GET /api/notifications/{userId}
+   - Açıklama: Belirli bir kullanıcının bildirimlerini listeler.
+   - Parametre: 
+     - userId (Path Variable): Kullanıcının ID’si.
+
+3. Bildirim Okundu Olarak İşaretle ve Sil
+   - Endpoint: PUT /api/notifications/markAsRead/{id}
+   - Açıklama: Belirli bir bildirimi okundu olarak işaretler ve veritabanından siler.
+   - Parametre: 
+     - id (Path Variable): Bildirimin ID’si.
+
+API Gateway
+- Port: 8088
+- Tüm servislerin trafiğini yönlendiren bir giriş noktasıdır.
+- Örnek: 
+  - User Service için: http://localhost:8088/api/users
+  - Message Service için: http://localhost:8088/api/message
+  - Notification Service için: http://localhost:8088/api/notifications
