@@ -46,6 +46,30 @@ User Service
    - Parametre: 
      - id (Path Variable): Kullanıcı ID’si.
 
+7. Kullanıcı Girişi(Login)
+   - Endpoint: POST /api/users/login
+   - Açıklama: Kullanıcı girişi yapar.
+   - Body:
+     {
+         "username": "string",
+         "password": "string"
+     }
+
+8. Şifre Sıfırlama Talebi Gönderme
+
+Endpoint: POST /api/users/forgot-password
+Query Param:email: Şifre sıfırlama bağlantısı almak isteyen kullanıcının e-postası
+
+9. Şifre Sıfırlama
+
+Endpoint: POST /api/users/reset-password
+Body:json ->
+{
+  "token": "resetToken",
+  "newPassword": "newpassword123"
+}
+
+
 Message Service
 1. Mesaj Gönder
    - Endpoint: POST /api/message
