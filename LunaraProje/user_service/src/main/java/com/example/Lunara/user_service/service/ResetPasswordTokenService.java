@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class ResetPasswordTokenService {
-    private static final String SECRET_KEY = "thisisaverysecureandlongencryptionkey123!";
+    private static final String SECRET_KEY = "h2!F@G%jK)Pp7s+T0YqLz*vBx9M#Rf3E$Cn&XgUw!VkYtN@Mm";
     private final ConcurrentHashMap<String, String> tokenStore = new ConcurrentHashMap<>();
 
     public String generateToken(String email) {

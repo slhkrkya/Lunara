@@ -1,0 +1,89 @@
+
+API Kullanıcı Endpointleri Listesi (Türkçe Açıklamalarla)
+
+1. Kullanıcı Oluşturma  
+   - URL: /api/users/create  
+   - Metot: POST  
+   - Açıklama: Yeni bir kullanıcı oluşturur. Kullanıcı pasif olarak kaydedilir ve doğrulama için bir e-posta gönderilir.  
+   - Parametreler:  
+     - User (JSON): Kullanıcı bilgileri.  
+
+2. E-posta Doğrulama  
+   - URL: /api/users/verify-email  
+   - Metot: GET  
+   - Açıklama: Kullanıcının e-posta adresini doğrular.  
+   - Parametreler:  
+     - token (Query Param): E-posta doğrulama tokeni.  
+
+3. Şifre Unuttum  
+   - URL: /api/users/forgot-password  
+   - Metot: POST  
+   - Açıklama: Kullanıcının şifresini sıfırlaması için bir e-posta gönderir.  
+   - Parametreler:  
+     - email (Query Param): Kullanıcının e-posta adresi.  
+
+4. Şifre Sıfırlama Formu  
+   - URL: /api/users/reset-password  
+   - Metot: GET  
+   - Açıklama: Şifre sıfırlama formunu döndürür.  
+   - Parametreler:  
+     - resetToken (Query Param): Şifre sıfırlama tokeni.  
+
+5. Şifre Sıfırlama İşlemi  
+   - URL: /api/users/reset-password  
+   - Metot: POST  
+   - Açıklama: Kullanıcının şifresini sıfırlar.  
+   - Parametreler:  
+     - resetToken (Query Param): Şifre sıfırlama tokeni.  
+     - newPassword (Form Data): Yeni şifre.  
+     - confirmPassword (Form Data): Yeni şifre tekrarı.  
+
+6. Kullanıcı Güncelleme  
+   - URL: /api/users/{id}  
+   - Metot: PUT  
+   - Açıklama: Belirli bir kullanıcıyı günceller.  
+   - Parametreler:  
+     - {id} (Path Param): Kullanıcı ID'si.  
+     - User (JSON): Güncellenecek bilgiler.  
+
+7. Kullanıcı Silme  
+   - URL: /api/users/{id}  
+   - Metot: DELETE  
+   - Açıklama: Belirli bir kullanıcıyı siler.  
+   - Parametreler:  
+     - {id} (Path Param): Kullanıcı ID'si.  
+
+8. Tüm Kullanıcıları Listeleme  
+   - URL: /api/users  
+   - Metot: GET  
+   - Açıklama: Tüm kullanıcıları listeler.  
+
+9. Kullanıcıyı Username'e Göre Bulma  
+   - URL: /api/users/username/{username}  
+   - Metot: GET  
+   - Açıklama: Belirli bir kullanıcıyı username'e göre döndürür.  
+   - Parametreler:  
+     - {username} (Path Param): Kullanıcının username bilgisi.  
+
+10. Kullanıcıyı ID'ye Göre Bulma  
+    - URL: /api/users/id/{id}  
+    - Metot: GET  
+    - Açıklama: Belirli bir kullanıcıyı ID'ye göre döndürür.  
+    - Parametreler:  
+      - {id} (Path Param): Kullanıcı ID'si.  
+
+11. Kullanıcı Girişi (Login)  
+    - URL: /api/users/login  
+    - Metot: POST  
+    - Açıklama: Kullanıcı girişi yapar ve JWT token döner.  
+    - Parametreler:  
+      - LoginRequest (JSON): Kullanıcı giriş bilgileri (username ve password).  
+
+12. Korunan Endpoint Örneği  
+    - URL: /api/users/protected  
+    - Metot: GET  
+    - Açıklama: JWT doğrulaması gerektiren korunan bir endpoint.  
+    - Parametreler:  
+      - Authorization (Header): Bearer token.  
+
+Bu endpointler, tüm kullanıcı işlemlerini ve şifre yönetimini içermektedir. Geliştirme sırasında her endpointin doğru bir şekilde çalıştığından emin olunması önerilir. 😊

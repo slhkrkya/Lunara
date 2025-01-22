@@ -22,8 +22,9 @@ public class SecurityConfig {
         System.out.println("Security Config Başladı");
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/login","/api/users/forgot-password","api/users/reset-password").permitAll() // Login ve Register için izin
+                        .requestMatchers("/api/users/login","/api/users/forgot-password","/api/users/reset-password", "/api/users/verify-email","/api/users/create").permitAll() // Login ve Register için izin
                         .anyRequest().authenticated() // Diğer istekler kimlik doğrulaması gerektirir
+                        //.requestMatchers("/**").permitAll() // Tüm endpoint'lere izin ver
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 

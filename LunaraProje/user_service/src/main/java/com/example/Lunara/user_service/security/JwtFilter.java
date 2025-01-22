@@ -53,6 +53,9 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return path.equals("/api/users/forgot-password") || path.equals("/api/users/reset-password");
+        return path.equals("/api/users/forgot-password") ||
+                path.equals("/api/users/reset-password") ||
+                path.equals("/api/users/verify-email") ||
+                path.equals("/api/users/create");
     }
 }

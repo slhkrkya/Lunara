@@ -20,6 +20,15 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private boolean active = false;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public long getId() {
         return id;
