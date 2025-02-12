@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Test</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+<input type="text" id="messageInput" placeholder="Mesajınızı yazın">
+<button onclick="sendMessage()">Gönder</button>
+<div id="messages"></div>
+
+<script>
+  var socket = new SockJS("http://localhost:8089/audio-chat");
+  var stompClient = Stomp.over(socket);
+
+  stompClient.connect({}, function (frame) {
+    console.log("WebSocket bağlantısı başarılı!");
+
+    // Mesajları dinlemek için /topic/audio'ya abone ol
+    stompClient.subscribe("/topic/audio", function (message) {
+      var receivedMessage = JSON.parse(message.body);
+      document.getElementById("messages").innerHTML += "<p>Gelen mesaj: " + receivedMessage + "</p>";
+    });
+  });
+
+  function sendMessage() {
+    var message = document.getElementById("messageInput").value;
+    stompClient.send("/app/audio", {}, JSON.stringify(message));
+  }
+</script>
+</body>
+</html>
+
